@@ -991,7 +991,7 @@
 
     <div class="divider-symbol animate-on-scroll">✦ ✦ ✦</div>
 
-    <!-- DETAILS with VENUE (removed image, map only) -->
+    <!-- DETAILS with VENUE -->
     <div class="details animate-on-scroll" id="details">
       <div class="detail-row">
         <span class="symbol">◈</span>
@@ -1067,7 +1067,7 @@
 
     <div class="divider-symbol animate-on-scroll">✦ ✦ ✦</div>
 
-    <!-- QR + MAP (Satellite style via Google Maps embed) -->
+    <!-- QR + MAP -->
     <div class="qr-map-container animate-on-scroll" id="map">
       <div class="qr-box"><span class="label" data-i18n="qrLabel">Place QR</span><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Vista%20Convention%20Center%20Vengad" alt="Place QR" /></div>
       <div class="venue-map-card animate-on-scroll" style="max-width:400px;margin:0;">
@@ -1104,9 +1104,7 @@
   </div>
 
   <script>
-    // ============================================================
-    // 1. PREMIUM CURSOR + GLOW
-    // ============================================================
+    // ===== PREMIUM CURSOR + GLOW =====
     const cursor = document.getElementById('customCursor');
     const glow = document.getElementById('mouseGlow');
     document.addEventListener('mousemove', (e) => {
@@ -1121,9 +1119,7 @@
       el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
 
-    // ============================================================
-    // 2. FLOATING PARTICLES (Canvas)
-    // ============================================================
+    // ===== FLOATING PARTICLES =====
     (function() {
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
@@ -1171,9 +1167,7 @@
       animateParticles();
     })();
 
-    // ============================================================
-    // 3. VOICE WELCOME
-    // ============================================================
+    // ===== VOICE WELCOME =====
     let welcomeSpoken = false;
     function speakWelcome() {
       if (welcomeSpoken) return;
@@ -1193,9 +1187,7 @@
       }
     }
 
-    // ============================================================
-    // 4. LOADING + INIT
-    // ============================================================
+    // ===== LOADING + INIT =====
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loadingScreen').classList.add('hidden');
@@ -1209,9 +1201,7 @@
       }, 1500);
     });
 
-    // ============================================================
-    // 5. TEXT REVEAL
-    // ============================================================
+    // ===== TEXT REVEAL =====
     function triggerTextReveal() {
       document.querySelectorAll('.groom-name, .bride-name').forEach((el, idx) => {
         const text = el.dataset.i18n === 'groom' ? 'MUNAWIR' : 'LABEEBA';
@@ -1236,9 +1226,7 @@
       });
     }
 
-    // ============================================================
-    // 6. ONE-TAP NAVIGATION
-    // ============================================================
+    // ===== ONE-TAP NAVIGATION =====
     const navDots = document.querySelectorAll('.nav-dot');
     const sections = {
       top: document.getElementById('mainCard'),
@@ -1286,9 +1274,7 @@
 
     window.addEventListener('scroll', updateNavDots);
 
-    // ============================================================
-    // 7. COPY ADDRESS
-    // ============================================================
+    // ===== COPY ADDRESS =====
     document.getElementById('copyAddress').addEventListener('click', function() {
       const address = 'Vista Convention Center, Vengad, Kerala, India';
       navigator.clipboard.writeText(address).then(() => {
@@ -1308,9 +1294,7 @@
       });
     });
 
-    // ============================================================
-    // 8. TABS
-    // ============================================================
+    // ===== TABS =====
     const tabs = document.querySelectorAll('.tab-btn');
     const tabContents = { letter: document.getElementById('tab-letter'), reel: document.getElementById('tab-reel') };
     tabs.forEach(btn => {
@@ -1325,17 +1309,13 @@
       });
     });
 
-    // ============================================================
-    // 9. VIDEO AUTOPLAY
-    // ============================================================
+    // ===== VIDEO AUTOPLAY =====
     document.addEventListener('DOMContentLoaded', () => {
       const v = document.querySelector('#tab-reel video');
       if (v) { v.muted = true; v.play().catch(() => {}); }
     });
 
-    // ============================================================
-    // 10. COUNTDOWN (Starts at 5:00 PM)
-    // ============================================================
+    // ===== COUNTDOWN =====
     const TARGET = new Date('2026-07-19T17:00:00+05:30').getTime();
     function updateCountdown() {
       const diff = Math.max(0, TARGET - Date.now());
@@ -1351,9 +1331,7 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // ============================================================
-    // 11. REMINDER
-    // ============================================================
+    // ===== REMINDER =====
     function checkReminder() {
       const diff = TARGET - Date.now();
       if (diff > 0 && diff <= 86400000 && !localStorage.getItem('reminderShown')) {
@@ -1365,9 +1343,7 @@
       document.getElementById('reminderToast').classList.remove('show');
     });
 
-    // ============================================================
-    // 12. CALENDAR (Starts at 5:00 PM, ends at 9:00 PM)
-    // ============================================================
+    // ===== CALENDAR =====
     function getEvent() {
       const s = new Date('2026-07-19T17:00:00+05:30');
       const e = new Date('2026-07-19T21:00:00+05:30');
@@ -1408,25 +1384,19 @@
       }
     });
 
-    // ============================================================
-    // 13. CONTROL PANEL
-    // ============================================================
+    // ===== CONTROL PANEL =====
     const toggleBtn = document.getElementById('toggleMenu');
     const menu = document.getElementById('controlMenu');
     let menuOpen = false;
     toggleBtn.addEventListener('click', (e) => { e.stopPropagation(); menuOpen = !menuOpen; menu.classList.toggle('open', menuOpen); });
     document.addEventListener('click', (e) => { if (!e.target.closest('.control-panel')) { menu.classList.remove('open'); menuOpen = false; } });
 
-    // ============================================================
-    // 14. THEME
-    // ============================================================
+    // ===== THEME =====
     const body = document.body;
     document.getElementById('lightThemeBtn').addEventListener('click', () => body.classList.remove('dark'));
     document.getElementById('darkThemeBtn').addEventListener('click', () => body.classList.add('dark'));
 
-    // ============================================================
-    // 15. LANGUAGE
-    // ============================================================
+    // ===== LANGUAGE =====
     const translations = {
       en: { groom:'MUNAWIR', bride:'LABEEBA', invite:'— Invite You to Celebrate —', groomFull:'Munawir Baqavi', groomAddr:'S/o Musthafa Kt & Jameela<br />Kunnathodi (H) Keezhmuri, Po, Vengad<br />Malappuram, Kerala', brideFull:'Labeeba Zahrawiyya', brideAddr:'D/o Mujeeb & Fousiya Mujeeb<br />Valayath Pulakkal, Kondoorkkara<br />Po, Kizhayur, Pattambi, Palakkad', tabLetter:'Letter', tabReel:'Reel', saveDate:'Save The Date', labelDate:'Date', dateMonth:'July 2026', dateDay:'Sunday', timeShort:'5:00 PM - 9:00 PM', labelVenue:'Venue', venue:'VISTA CONVENTION CENTER', venueLoc:'Vengad, Kerala', qrLabel:'Place QR', venueLabel:'WEDDING VENUE', venueShort:'VISTA CONVENTION CENTER', openGoogle:'Google Maps', openApple:'Apple Maps', footerMain:'Complements Family & Friends', footerSub:'With Blessings & Prayers', themeLabel:'Theme', langLabel:'Language', rsvpTitle:'Kindly Respond', rsvpSub:'— We await your presence —', rsvpNameLabel:'Full Name', rsvpAttendLabel:'Will you attend?', rsvpYes:'Yes, Insha Allah', rsvpNo:'Sorry, can\'t make it', rsvpGuestsLabel:'Number of Guests', rsvpMessageLabel:'Message (optional)', rsvpSubmit:'Send RSVP', rsvpSuccessMsg:'✓ Your response has been recorded. Thank you!' },
       ar: { groom:'مُنَوِّر', bride:'لَبِيْبَة', invite:'— يدعوكم للاحتفال —', groomFull:'منور بقوي', groomAddr:'ابن مصطفى ك ت و جميلة<br />كوناثودي (ح) كيزحموري، بو، فينجاد<br />مالابورام، كيرلا', brideFull:'لبيبة زهراوية', brideAddr:'ابنة مجيب و فوزية مجيب<br />ولاياة بولاكال، كوندوركارا<br />بو، كيزهايور، باتامبي، بالاكاد', tabLetter:'رسالة', tabReel:'فيلم', saveDate:'احفظ التاريخ', labelDate:'التاريخ', dateMonth:'يوليو 2026', dateDay:'الأحد', timeShort:'5:00 م - 9:00 م', labelVenue:'المكان', venue:'مركز فيستا للمؤتمرات', venueLoc:'فينجاد، كيرلا', qrLabel:'رمز المكان', venueLabel:'مكان الزفاف', venueShort:'مركز فيستا للمؤتمرات', openGoogle:'خرائط جوجل', openApple:'خرائط آبل', footerMain:'تحيات العائلة والأصدقاء', footerSub:'بالبركات والدعوات', themeLabel:'المظهر', langLabel:'اللغة', rsvpTitle:'تفضل بالرد', rsvpSub:'— ننتظر حضوركم —', rsvpNameLabel:'الاسم الكامل', rsvpAttendLabel:'هل ستحضر؟', rsvpYes:'نعم، إن شاء الله', rsvpNo:'آسف، لا أستطيع الحضور', rsvpGuestsLabel:'عدد الضيوف', rsvpMessageLabel:'رسالة (اختياري)', rsvpSubmit:'إرسال التأكيد', rsvpSuccessMsg:'✓ تم تسجيل ردك. شكراً لك!' },
@@ -1454,9 +1424,7 @@
     document.getElementById('langAr').addEventListener('click', () => applyLanguage('ar'));
     document.getElementById('langMl').addEventListener('click', () => applyLanguage('ml'));
 
-    // ============================================================
-    // 16. RSVP FORM
-    // ============================================================
+    // ===== RSVP FORM =====
     const rsvpForm = document.getElementById('rsvpForm');
     const rsvpSuccess = document.getElementById('rsvpSuccess');
     rsvpForm.addEventListener('submit', function(e) {
@@ -1469,17 +1437,13 @@
       return true;
     });
 
-    // ============================================================
-    // 17. SCROLL OBSERVER
-    // ============================================================
+    // ===== SCROLL OBSERVER =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.10, rootMargin: '0px 0px -20px 0px' });
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-    // ============================================================
-    // 18. SPEAK ON FIRST INTERACTION
-    // ============================================================
+    // ===== SPEAK ON FIRST INTERACTION =====
     document.addEventListener('click', () => { if (!welcomeSpoken) speakWelcome(); }, { once: true });
     document.addEventListener('touchstart', () => { if (!welcomeSpoken) speakWelcome(); }, { once: true });
   </script>

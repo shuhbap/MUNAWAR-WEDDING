@@ -80,6 +80,11 @@
     body.dark .copy-address-btn { background: rgba(180,140,100,0.08); color: #c9b094; border-color: rgba(180,140,100,0.15); }
     body.dark .copy-address-btn:hover { background: #9B7B5C; color: #1e1a16; }
     body.dark .venue-preview img { border-color: rgba(180,140,100,0.1); }
+    body.dark .footer-standard { border-color: rgba(180, 140, 100, 0.08); }
+    body.dark .footer-standard .footer-heart { color: #c9b094; }
+    body.dark .footer-standard .footer-name { color: #f0e6d8; }
+    body.dark .footer-standard .footer-text { color: #b8a99a; }
+    body.dark .footer-standard .footer-divider { background: rgba(180, 140, 100, 0.08); }
 
     /* ===== PREMIUM CURSOR ===== */
     .custom-cursor {
@@ -638,11 +643,57 @@
     body.dark .open-map-btn { background: transparent; color: #c9b094; border-color: #c9b094; }
     body.dark .open-map-btn:hover { background: #9B7B5C; color: #1e1a16; }
 
-    .footer { margin-top: 24px; padding-top: 28px; border-top: 1px solid rgba(180,140,100,0.04); display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .footer .main-line { font-family: 'Cormorant Garamond',serif; font-size: 1rem; color: #9B7B5C; font-weight: 400; letter-spacing: 6px; opacity: 0.4; transition: color 0.4s; }
-    .footer .divider-line { font-size: 0.6rem; color: #B28B6A; opacity: 0.06; letter-spacing: 8px; }
-    .footer .sub-line { font-family: 'Inter',sans-serif; font-size: 0.55rem; color: #9B7B5C; letter-spacing: 5px; opacity: 0.3; text-transform: uppercase; }
-    .footer .sub-line span { margin: 0 6px; }
+    /* ===== STANDARD FOOTER ===== */
+    .footer-standard {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(180, 140, 100, 0.06);
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.4s;
+    }
+    .footer-standard .footer-divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(180, 140, 100, 0.10);
+      margin: 0 auto 14px;
+      border-radius: 4px;
+      transition: background 0.4s;
+    }
+    .footer-standard .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #3D2C1B;
+      letter-spacing: 4px;
+      margin-bottom: 4px;
+      transition: color 0.4s;
+    }
+    .footer-standard .footer-text {
+      font-size: 0.7rem;
+      color: #9B7B5C;
+      opacity: 0.5;
+      letter-spacing: 3px;
+      transition: color 0.4s;
+    }
+    .footer-standard .footer-heart {
+      color: #B28B6A;
+      opacity: 0.3;
+      font-size: 0.8rem;
+      letter-spacing: 8px;
+      margin: 8px 0 4px;
+      transition: color 0.4s;
+    }
+    .footer-standard .footer-date {
+      font-size: 0.6rem;
+      color: #9B7B5C;
+      opacity: 0.25;
+      letter-spacing: 2px;
+      margin-top: 6px;
+      transition: color 0.4s;
+    }
+
+    .footer { display: none; }
 
     .control-panel { position: fixed; bottom: 32px; right: 32px; z-index: 200; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
     .control-toggle {
@@ -782,6 +833,8 @@
       .dua-arabic { font-size: 1.2rem; }
       .logo-svg { width: 60px; height: 60px; }
       .map-buttons .open-map-btn { max-width: 140px; font-size: 0.6rem; padding: 6px 12px; }
+      .footer-standard .footer-name { font-size: 1rem; }
+      .footer-standard .footer-text { font-size: 0.6rem; }
     }
     @media (max-width:400px) {
       .groom-name, .bride-name { font-size: 2rem; }
@@ -799,6 +852,7 @@
       .nav-dots { right: 8px; gap: 8px; }
       .nav-dot { width: 6px; height: 6px; }
       .logo-svg { width: 50px; height: 50px; }
+      .footer-standard .footer-name { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -950,7 +1004,7 @@
               <span class="day-name" data-i18n="dateDay">Sunday</span>
             </div>
             <span class="divider-line"></span>
-            <span class="time-info" data-i18n="timeShort">5:30 PM</span>
+            <span class="time-info" data-i18n="timeShort">9:00 PM</span>
           </div>
         </span>
       </div>
@@ -1029,11 +1083,13 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer animate-on-scroll">
-      <div class="main-line" data-i18n="footerMain">Complements Family &amp; Friends</div>
-      <div class="divider-line">✦ ✦ ✦</div>
-      <div class="sub-line"><span>✦</span> <span data-i18n="footerSub">With Blessings &amp; Prayers</span> <span>✦</span></div>
+    <!-- ===== NEW STANDARD FOOTER ===== -->
+    <div class="footer-standard animate-on-scroll">
+      <div class="footer-divider"></div>
+      <div class="footer-name">Munawir &amp; Labeeba</div>
+      <div class="footer-text">Complements Family &amp; Friends</div>
+      <div class="footer-heart">✦ ✦ ✦</div>
+      <div class="footer-date">19 July 2026 · 9:00 PM · Vista Convention Center</div>
     </div>
   </div>
 
@@ -1280,7 +1336,7 @@
     // ============================================================
     // 10. COUNTDOWN
     // ============================================================
-    const TARGET = new Date('2026-07-19T17:30:00+05:30').getTime();
+    const TARGET = new Date('2026-07-19T21:00:00+05:30').getTime();
     function updateCountdown() {
       const diff = Math.max(0, TARGET - Date.now());
       document.getElementById('countDays').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
@@ -1313,7 +1369,7 @@
     // 12. CALENDAR
     // ============================================================
     function getEvent() {
-      const s = new Date('2026-07-19T17:30:00+05:30');
+      const s = new Date('2026-07-19T21:00:00+05:30');
       const e = new Date(s.getTime() + 3 * 3600000);
       const fmt = d => d.toISOString().replace(/-|:|\.\d+/g, '');
       return { title: 'Munawir & Labeeba Wedding', desc: 'Wedding ceremony of Munawir Baqavi and Labeeba Zahrawiyya. Venue: Vista Convention Center, Vengad, Kerala.', loc: 'Vista Convention Center, Vengad, Kerala', start: fmt(s), end: fmt(e) };
@@ -1344,7 +1400,7 @@
         const remindTime = TARGET - 86400000;
         localStorage.setItem('reminderScheduled', 'true');
         localStorage.setItem('reminderTime', remindTime);
-        alert('✓ Reminder set! You will be notified 24 hours before the wedding (July 18, 5:30 PM).');
+        alert('✓ Reminder set! You will be notified 24 hours before the wedding (July 18, 9:00 PM).');
         setTimeout(() => {
           document.getElementById('reminderToast').classList.add('show');
           localStorage.setItem('reminderShown', 'true');
@@ -1372,9 +1428,9 @@
     // 15. LANGUAGE
     // ============================================================
     const translations = {
-      en: { groom:'MUNAWIR', bride:'LABEEBA', invite:'— Invite You to Celebrate —', groomFull:'Munawir Baqavi', groomAddr:'S/o Musthafa Kt & Jameela<br />Kunnathodi (H) Keezhmuri, Po, Vengad<br />Malappuram, Kerala', brideFull:'Labeeba Zahrawiyya', brideAddr:'D/o Mujeeb & Fousiya Mujeeb<br />Valayath Pulakkal, Kondoorkkara<br />Po, Kizhayur, Pattambi, Palakkad', tabLetter:'Letter', tabReel:'Reel', saveDate:'Save The Date', labelDate:'Date', dateMonth:'July 2026', dateDay:'Sunday', timeShort:'5:30 PM', labelVenue:'Venue', venue:'VISTA CONVENTION CENTER', venueLoc:'Vengad, Kerala', qrLabel:'Place QR', venueLabel:'WEDDING VENUE', venueShort:'VISTA CONVENTION CENTER', openGoogle:'Google Maps', openApple:'Apple Maps', footerMain:'Complements Family & Friends', footerSub:'With Blessings & Prayers', themeLabel:'Theme', langLabel:'Language', rsvpTitle:'Kindly Respond', rsvpSub:'— We await your presence —', rsvpNameLabel:'Full Name', rsvpAttendLabel:'Will you attend?', rsvpYes:'Yes, Insha Allah', rsvpNo:'Sorry, can\'t make it', rsvpGuestsLabel:'Number of Guests', rsvpMessageLabel:'Message (optional)', rsvpSubmit:'Send RSVP', rsvpSuccessMsg:'✓ Your response has been recorded. Thank you!' },
-      ar: { groom:'مُنَوِّر', bride:'لَبِيْبَة', invite:'— يدعوكم للاحتفال —', groomFull:'منور بقوي', groomAddr:'ابن مصطفى ك ت و جميلة<br />كوناثودي (ح) كيزحموري، بو، فينجاد<br />مالابورام، كيرلا', brideFull:'لبيبة زهراوية', brideAddr:'ابنة مجيب و فوزية مجيب<br />ولاياة بولاكال، كوندوركارا<br />بو، كيزهايور، باتامبي، بالاكاد', tabLetter:'رسالة', tabReel:'فيلم', saveDate:'احفظ التاريخ', labelDate:'التاريخ', dateMonth:'يوليو 2026', dateDay:'الأحد', timeShort:'5:30 م', labelVenue:'المكان', venue:'مركز فيستا للمؤتمرات', venueLoc:'فينجاد، كيرلا', qrLabel:'رمز المكان', venueLabel:'مكان الزفاف', venueShort:'مركز فيستا للمؤتمرات', openGoogle:'خرائط جوجل', openApple:'خرائط آبل', footerMain:'تحيات العائلة والأصدقاء', footerSub:'بالبركات والدعوات', themeLabel:'المظهر', langLabel:'اللغة', rsvpTitle:'تفضل بالرد', rsvpSub:'— ننتظر حضوركم —', rsvpNameLabel:'الاسم الكامل', rsvpAttendLabel:'هل ستحضر؟', rsvpYes:'نعم، إن شاء الله', rsvpNo:'آسف، لا أستطيع الحضور', rsvpGuestsLabel:'عدد الضيوف', rsvpMessageLabel:'رسالة (اختياري)', rsvpSubmit:'إرسال التأكيد', rsvpSuccessMsg:'✓ تم تسجيل ردك. شكراً لك!' },
-      ml: { groom:'മുനവ്വിർ', bride:'ലബീബ', invite:'— ആഘോഷിക്കാൻ ക്ഷണിക്കുന്നു —', groomFull:'മുനവ്വിർ ബഖവി', groomAddr:'മുസ്തഫ കെ.ടി & ജമീലയുടെ മകൻ<br />കുന്നത്തൊടി (എച്ച്) കീഴ്മുറി, പോ, വേങ്ങാട്<br />മലപ്പുറം, കേരളം', brideFull:'ലബീബ സഹറവിയ്യ', brideAddr:'മുജീബ് & ഫൗസിയ മുജീബിൻ്റെ മകൾ<br />വലയത്ത് പുലക്കൽ, കൊണ്ടൂർക്കര<br />പോ, കിഴയൂർ, പട്ടാമ്പി, പാലക്കാട്', tabLetter:'കത്ത്', tabReel:'റീൽ', saveDate:'തീയതി സൂക്ഷിക്കുക', labelDate:'തീയതി', dateMonth:'ജൂലൈ 2026', dateDay:'ഞായർ', timeShort:'5:30 PM', labelVenue:'വേദി', venue:'വിസ്റ്റ കൺവെൻഷൻ സെന്റർ', venueLoc:'വേങ്ങാട്, കേരളം', qrLabel:'സ്ഥല QR', venueLabel:'വിവാഹ വേദി', venueShort:'വിസ്റ്റ കൺവെൻഷൻ സെന്റർ', openGoogle:'ഗൂഗിൾ മാപ്പ്', openApple:'ആപ്പിൾ മാപ്പ്', footerMain:'കുടുംബത്തിന്റെയും സുഹൃത്തുക്കളുടെയും ആശംസകൾ', footerSub:'അനുഗ്രഹങ്ങളോടും പ്രാർത്ഥനകളോടും', themeLabel:'തീം', langLabel:'ഭാഷ', rsvpTitle:'ദയവായി മറുപടി നൽകുക', rsvpSub:'— നിങ്ങളുടെ സാന്നിധ്യം ഞങ്ങൾ പ്രതീക്ഷിക്കുന്നു —', rsvpNameLabel:'പൂർണ്ണ നാമം', rsvpAttendLabel:'നിങ്ങൾ പങ്കെടുക്കുമോ?', rsvpYes:'അതെ, ഇൻഷാ അല്ലാഹ്', rsvpNo:'ക്ഷമിക്കുക, എനിക്ക് വരാൻ സാധിക്കില്ല', rsvpGuestsLabel:'അതിഥികളുടെ എണ്ണം', rsvpMessageLabel:'സന്ദേശം (ഐച്ഛികം)', rsvpSubmit:'RSVP അയയ്ക്കുക', rsvpSuccessMsg:'✓ നിങ്ങളുടെ മറുപടി രേഖപ്പെടുത്തി. നന്ദി!' }
+      en: { groom:'MUNAWIR', bride:'LABEEBA', invite:'— Invite You to Celebrate —', groomFull:'Munawir Baqavi', groomAddr:'S/o Musthafa Kt & Jameela<br />Kunnathodi (H) Keezhmuri, Po, Vengad<br />Malappuram, Kerala', brideFull:'Labeeba Zahrawiyya', brideAddr:'D/o Mujeeb & Fousiya Mujeeb<br />Valayath Pulakkal, Kondoorkkara<br />Po, Kizhayur, Pattambi, Palakkad', tabLetter:'Letter', tabReel:'Reel', saveDate:'Save The Date', labelDate:'Date', dateMonth:'July 2026', dateDay:'Sunday', timeShort:'9:00 PM', labelVenue:'Venue', venue:'VISTA CONVENTION CENTER', venueLoc:'Vengad, Kerala', qrLabel:'Place QR', venueLabel:'WEDDING VENUE', venueShort:'VISTA CONVENTION CENTER', openGoogle:'Google Maps', openApple:'Apple Maps', footerMain:'Complements Family & Friends', footerSub:'With Blessings & Prayers', themeLabel:'Theme', langLabel:'Language', rsvpTitle:'Kindly Respond', rsvpSub:'— We await your presence —', rsvpNameLabel:'Full Name', rsvpAttendLabel:'Will you attend?', rsvpYes:'Yes, Insha Allah', rsvpNo:'Sorry, can\'t make it', rsvpGuestsLabel:'Number of Guests', rsvpMessageLabel:'Message (optional)', rsvpSubmit:'Send RSVP', rsvpSuccessMsg:'✓ Your response has been recorded. Thank you!' },
+      ar: { groom:'مُنَوِّر', bride:'لَبِيْبَة', invite:'— يدعوكم للاحتفال —', groomFull:'منور بقوي', groomAddr:'ابن مصطفى ك ت و جميلة<br />كوناثودي (ح) كيزحموري، بو، فينجاد<br />مالابورام، كيرلا', brideFull:'لبيبة زهراوية', brideAddr:'ابنة مجيب و فوزية مجيب<br />ولاياة بولاكال، كوندوركارا<br />بو، كيزهايور، باتامبي، بالاكاد', tabLetter:'رسالة', tabReel:'فيلم', saveDate:'احفظ التاريخ', labelDate:'التاريخ', dateMonth:'يوليو 2026', dateDay:'الأحد', timeShort:'9:00 م', labelVenue:'المكان', venue:'مركز فيستا للمؤتمرات', venueLoc:'فينجاد، كيرلا', qrLabel:'رمز المكان', venueLabel:'مكان الزفاف', venueShort:'مركز فيستا للمؤتمرات', openGoogle:'خرائط جوجل', openApple:'خرائط آبل', footerMain:'تحيات العائلة والأصدقاء', footerSub:'بالبركات والدعوات', themeLabel:'المظهر', langLabel:'اللغة', rsvpTitle:'تفضل بالرد', rsvpSub:'— ننتظر حضوركم —', rsvpNameLabel:'الاسم الكامل', rsvpAttendLabel:'هل ستحضر؟', rsvpYes:'نعم، إن شاء الله', rsvpNo:'آسف، لا أستطيع الحضور', rsvpGuestsLabel:'عدد الضيوف', rsvpMessageLabel:'رسالة (اختياري)', rsvpSubmit:'إرسال التأكيد', rsvpSuccessMsg:'✓ تم تسجيل ردك. شكراً لك!' },
+      ml: { groom:'മുനവ്വിർ', bride:'ലബീബ', invite:'— ആഘോഷിക്കാൻ ക്ഷണിക്കുന്നു —', groomFull:'മുനവ്വിർ ബഖവി', groomAddr:'മുസ്തഫ കെ.ടി & ജമീലയുടെ മകൻ<br />കുന്നത്തൊടി (എച്ച്) കീഴ്മുറി, പോ, വേങ്ങാട്<br />മലപ്പുറം, കേരളം', brideFull:'ലബീബ സഹറവിയ്യ', brideAddr:'മുജീബ് & ഫൗസിയ മുജീബിൻ്റെ മകൾ<br />വലയത്ത് പുലക്കൽ, കൊണ്ടൂർക്കര<br />പോ, കിഴയൂർ, പട്ടാമ്പി, പാലക്കാട്', tabLetter:'കത്ത്', tabReel:'റീൽ', saveDate:'തീയതി സൂക്ഷിക്കുക', labelDate:'തീയതി', dateMonth:'ജൂലൈ 2026', dateDay:'ഞായർ', timeShort:'9:00 PM', labelVenue:'വേദി', venue:'വിസ്റ്റ കൺവെൻഷൻ സെന്റർ', venueLoc:'വേങ്ങാട്, കേരളം', qrLabel:'സ്ഥല QR', venueLabel:'വിവാഹ വേദി', venueShort:'വിസ്റ്റ കൺവെൻഷൻ സെന്റർ', openGoogle:'ഗൂഗിൾ മാപ്പ്', openApple:'ആപ്പിൾ മാപ്പ്', footerMain:'കുടുംബത്തിന്റെയും സുഹൃത്തുക്കളുടെയും ആശംസകൾ', footerSub:'അനുഗ്രഹങ്ങളോടും പ്രാർത്ഥനകളോടും', themeLabel:'തീം', langLabel:'ഭാഷ', rsvpTitle:'ദയവായി മറുപടി നൽകുക', rsvpSub:'— നിങ്ങളുടെ സാന്നിധ്യം ഞങ്ങൾ പ്രതീക്ഷിക്കുന്നു —', rsvpNameLabel:'പൂർണ്ണ നാമം', rsvpAttendLabel:'നിങ്ങൾ പങ്കെടുക്കുമോ?', rsvpYes:'അതെ, ഇൻഷാ അല്ലാഹ്', rsvpNo:'ക്ഷമിക്കുക, എനിക്ക് വരാൻ സാധിക്കില്ല', rsvpGuestsLabel:'അതിഥികളുടെ എണ്ണം', rsvpMessageLabel:'സന്ദേശം (ഐച്ഛികം)', rsvpSubmit:'RSVP അയയ്ക്കുക', rsvpSuccessMsg:'✓ നിങ്ങളുടെ മറുപടി രേഖപ്പെടുത്തി. നന്ദി!' }
     };
     let currentLang = 'en';
     function applyLanguage(lang) {
